@@ -1,7 +1,8 @@
 package com.example.graphql.controller
 
-import com.example.graphql.model.Author
-import com.example.graphql.model.Book
+import com.example.graphql.entity.Author
+import com.example.graphql.model.AuthorDto
+import com.example.graphql.model.BookDto
 import com.example.graphql.service.AuthorService
 import com.example.graphql.service.BookService
 import org.springframework.graphql.data.method.annotation.Argument
@@ -21,13 +22,17 @@ class BookController(
         return "lambda function"
     }
 
+//    @QueryMapping
+//    fun bookById(@Argument id: String): BookDto {
+//        return bookService.getById(id)
+//    }
     @QueryMapping
-    fun bookById(@Argument id: String): Book {
-        return bookService.getById(id)
+    fun oneAuthor(@Argument id: String): AuthorDto {
+        return authorService.oneAuthor(id)
     }
 
-    @SchemaMapping
-    fun author(book: Book): Author? {
-        return authorService.getById(book.authorId)
-    }
+//    @SchemaMapping
+//    fun author(bookDto: BookDto): AuthorDto? {
+//        return authorService.getById(bookDto.authorId)
+//    }
 }

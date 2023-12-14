@@ -1,16 +1,32 @@
 type Query {
-    bookById(id: ID): Book
+    oneAuthor(id :ID):AuthorDto
 }
+#type Query {
+#    findAllAuthors: [AuthorDto]!
+#    findAllBooks: [BookDto]!
+#    oneAuthor(id :ID):AuthorDto
+#    countAuthors: Int!
+#    oneBook(id :ID):BookDto
+#    countBooks: Int!
+#}
 
-type Book {
+#type Mutation {
+#    createAuthor(name: String!, firstName: String, lastName: String): AuthorDto!
+#    createBook( name: String!,pageCount: Int, author: ID!): BookDto!
+#    updateBook(id: ID!, name: String, pageCount: Int): BookDto!
+#    deleteBook(id: ID!): Boolean
+#}
+
+type BookDto {
     id: ID
     name: String
     pageCount: Int
-    author: Author
+
 }
 
-type Author {
+type AuthorDto {
     id: ID
     firstName: String
     lastName: String
+    books: [BookDto]
 }

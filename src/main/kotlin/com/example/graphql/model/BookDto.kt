@@ -1,6 +1,6 @@
 package com.example.graphql.model
 
-data class Book(
+data class BookDto(
     val id: String,
     val name: String,
     val pageCount: Int,
@@ -8,7 +8,7 @@ data class Book(
 ) {
     companion object {
         @JvmStatic
-        fun books(): List<Book> = listOf(Book("1", "ithaki", 10,"asimov"))
+        fun books(): List<BookDto> = listOf(BookDto("1", "ithaki", 10,"asimov"))
     }
 
 
